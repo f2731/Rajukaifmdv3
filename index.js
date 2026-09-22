@@ -1200,6 +1200,24 @@ async function main() {
     cleanTempFiles(false);
     pruneInMemoryStore();
 
+    // Auto Clear Memory every 30 minutes
+setInterval(() => {
+    try {
+        cleanTempFiles(true);
+    } catch (e) {
+        console.error('Auto clean error:', e.message);
+    }
+}, 30 * 60 * 1000);
+
+    // Auto memory check and clean restart
+setInterval(() => {
+    const memoryUsage = process.memoryUsage().heapUsed / 1024 / 1024;
+    if (memoryUsage > 450) {
+        console.log(`⚠️ High Memory Usage detected (${Math.round(memoryUsage)}MB). Restarting process...`);
+        process.exit(0); // Heroku will automatically restart the dyno
+    }
+}, 5 * 60 * 1000);
+    
     // Background job running every 6 hours
     setInterval(async () => {
         const activeSessionId = config.sessionId || 'kaif_session';
