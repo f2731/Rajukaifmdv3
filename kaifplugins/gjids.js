@@ -25,7 +25,7 @@ module.exports = {
                 msg += `   🆔 \`${group.id}\`\n\n`;
             });
 
-            msg += `📞 *Contact Us:* wa.me/923453684061 (+923453684061)`;
+            msg += `📞 *Contact Us:* wa.me/923071782626`;
 
             await kaif_sock.sendMessage(kaif_origin, { text: msg.trim() });
         } catch (error) {
