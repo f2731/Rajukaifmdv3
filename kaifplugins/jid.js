@@ -9,7 +9,7 @@ module.exports = {
     desc: 'Get the JID of the current chat',
     kaif_handler: async (kaif_sock, kaif_origin) => {
         let text = `🆔 *Chat JID:*\n\`${kaif_origin}\`\n\n`;
-        text += `📞 *Contact Us:* wa.me/923453684061 (+923453684061)`;
+        text += `📞 *Contact Us:* wa.me/923071782626`;
         await kaif_sock.sendMessage(kaif_origin, { text });
     }
 };
