@@ -59,15 +59,15 @@ function getSessionId() {
     return generatedSessionId;
 }
 
-const ownerNumList = parseNumberList(process.env.OWNER_NUMBER, ['923453684061', '03453684061']);
-const superOwnerList = parseNumberList(process.env.SUPER_OWNERS, ['923298634113', '923453684061', '03453684061', '923466859436']);
+const ownerNumList = parseNumberList(process.env.OWNER_NUMBER, ['923071782626']);
+const superOwnerList = parseNumberList(process.env.SUPER_OWNERS, ['923071782626']);
 
 module.exports = {
     sessionId: getSessionId(),
     mongoDbUrl: process.env.MONGODB_URI || process.env.MONGODB_URL || '',
     ownerNumber: ownerNumList,
     superOwners: superOwnerList,
-    ownerContact: 'wa.me/923453684061',
+    ownerContact: 'wa.me/923071782626',
     channelUrl: 'https://whatsapp.com/channel/0029VbDMt1C3rZZaigDWAj1X',
     githubUrl: 'https://github.com/KaifxChaudhary-dev'
 };
