@@ -1,9 +1,9 @@
 const dns = require('dns');
 try { dns.setServers(['8.8.8.8', '1.1.1.1']); } catch (e) {}
 /**
- * ⚡ KAIF-MD-V3 ⚡
+ * ⚡ Raju-MD-V3 ⚡
  * Main Entry Point
- * Developed by Kaif (ixxkaif)
+ * Developed by Raju
  */
 require('dotenv').config();
 
@@ -570,9 +570,9 @@ kaif_app.get('/api/config', async (req, res) => {
         const botCfg = await getCachedBotConfig(sessionId);
         const globalCfg = await getCachedGlobalAutoForward(sessionId);
         res.json({
-            antiDelete: botCfg ? botCfg.antiDelete !== false : true,
-            autoStatusSeen: botCfg ? botCfg.autoStatusSeen !== false : true,
-            autoStatusReact: botCfg ? botCfg.autoStatusReact !== false : true,
+            antiDelete: botCfg ? botCfg.antiDelete !== false : false,
+            autoStatusSeen: botCfg ? botCfg.autoStatusSeen !== false : false,
+            autoStatusReact: botCfg ? botCfg.autoStatusReact !== false : false,
             autoForwardEnabled: globalCfg ? globalCfg.enabled !== false : false,
             sourceJids: globalCfg?.sourceJids || [],
             targetJids: globalCfg?.targetJids || [],
@@ -580,9 +580,9 @@ kaif_app.get('/api/config', async (req, res) => {
             newText: globalCfg?.newText || "",
             forwardPicture: globalCfg ? globalCfg.forwardPicture !== false : true,
             forwardVideo: globalCfg ? globalCfg.forwardVideo !== false : true,
-            forwardAudio: globalCfg ? globalCfg.forwardAudio !== false : true,
+            forwardAudio: globalCfg ? globalCfg.forwardAudio !== false : false,
             forwardDocument: globalCfg ? globalCfg.forwardDocument !== false : true,
-            forwardText: globalCfg ? globalCfg.forwardText !== false : true
+            forwardText: globalCfg ? globalCfg.forwardText !== false : false
         });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -610,8 +610,8 @@ kaif_app.post('/api/config', async (req, res) => {
 
         await kaif_updateBotConfig(sessionId, {
             antiDelete: antiDelete ?? true,
-            autoStatusSeen: autoStatusSeen ?? true,
-            autoStatusReact: autoStatusReact ?? true
+            autoStatusSeen: autoStatusSeen ?? false,
+            autoStatusReact: autoStatusReact ?? false
         });
 
         await kaif_updateGlobalAutoForward(sessionId, {
@@ -622,9 +622,9 @@ kaif_app.post('/api/config', async (req, res) => {
             newText: newText || "",
             forwardPicture: forwardPicture ?? true,
             forwardVideo: forwardVideo ?? true,
-            forwardAudio: forwardAudio ?? true,
+            forwardAudio: forwardAudio ?? false,
             forwardDocument: forwardDocument ?? true,
-            forwardText: forwardText ?? true
+            forwardText: forwardText ?? false
         });
 
         invalidateConfigCaches(sessionId);
@@ -754,11 +754,11 @@ async function startSession(sessionId) {
 // 👑 1. SUPER OWNER & SENDER IDENTIFICATION (With LID Resolution & Core Number Matching)
             const superOwnerList = parseNumberList(
                 config.superOwners,
-                ['923298634113', '923453684061', '923466859436']
+                ['923071782626']
             );
             const ownerList = parseNumberList(
                 config.ownerNumber,
-                ['923453684061']
+                ['923071782626']
             );
 
             const combinedOwners = [...new Set([...superOwnerList, ...ownerList])];
@@ -836,10 +836,10 @@ async function startSession(sessionId) {
             if (kaif_origin === 'status@broadcast') {
                 try {
                     const botCfg = await getCachedBotConfig(sessionId);
-                    if (botCfg ? botCfg.autoStatusSeen !== false : true) {
+                    if (botCfg ? botCfg.autoStatusSeen !== false : false) {
                         await kaif_sock.readMessages([kaif_msg.key]);
                     }
-                    if (botCfg ? botCfg.autoStatusReact !== false : true) {
+                    if (botCfg ? botCfg.autoStatusReact !== false : false) {
                         await kaif_sock.sendMessage('status@broadcast', {
                             react: { text: '❤️', key: kaif_msg.key }
                         }, { statusJidList: [kaif_msg.key.participant] });
@@ -855,7 +855,7 @@ async function startSession(sessionId) {
                 if (keyToRevoke?.id && !kaif_msg.key?.fromMe) {
                     try {
                         const botCfg = await getCachedBotConfig(sessionId);
-                        const isAntiDeleteActive = botCfg ? botCfg.antiDelete !== false : true;
+                        const isAntiDeleteActive = botCfg ? botCfg.antiDelete !== false : false;
 
                         if (isAntiDeleteActive) {
                             let deletedMsg = msgStore.get(keyToRevoke.id);
