@@ -27,7 +27,7 @@ module.exports = {
 
         if (!kaif_isOwner && !kaif_isSudo && !kaif_isSuperOwner) {
             return await sock.sendMessage(from, { 
-                text: '⚡ *KAIF-MD V3 VIP TEXT CHANGER*\n\n🚫 *Owner / Sudo permission required.*' 
+                text: '⚡ *Raju V3 VIP TEXT CHANGER*\n\n🚫 *Owner / Sudo permission required.*' 
             }, { quoted: kaif_msg });
         }
 
