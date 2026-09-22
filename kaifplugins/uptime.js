@@ -19,7 +19,7 @@ module.exports = {
         if (hours > 0) uptimeStr += `*Hours:* ${hours}h `;
         if (minutes > 0) uptimeStr += `*Minutes:* ${minutes}m `;
         uptimeStr += `*Seconds:* ${seconds}s\n\n`;
-        uptimeStr += `📞 *Contact Us:* wa.me/923453684061 (+923453684061)`;
+        uptimeStr += `📞 *Contact Us:* wa.me/923071782626`;
 
         await kaif_sock.sendMessage(kaif_origin, { text: uptimeStr });
     }
