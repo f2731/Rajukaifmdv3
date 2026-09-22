@@ -36,7 +36,7 @@ module.exports = {
         const totalCmds = handledCommands.size;
         const senderNumber = kaif_sender ? kaif_sender.split('@')[0] : 'user';
 
-        let menuText = `⚡ *KAIF-MD V3 • OFFICIAL MENU*\n\n` +
+        let menuText = `⚡ *Raju V3 • OFFICIAL MENU*\n\n` +
             `👤 User    : @${senderNumber}\n` +
             `📌 Prefix  : \`.\`\n` +
             `⚙️ Commands: *${totalCmds}*\n\n` +
@@ -68,8 +68,8 @@ module.exports = {
 
         menuText += `━━━━━━━━━━━━━━━━━━\n\n` +
             `📞 *OWNER CONTACT*\n` +
-            `\`+923453684061\`\n\n` +
-            `*Developed by Kaif x Chaudhary*`;
+            `\`+923071782626\`\n\n` +
+            `*Developed by Raju*`;
 
         try {
             return await kaif_sock.sendMessage(kaif_origin, { 
