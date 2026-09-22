@@ -52,7 +52,7 @@ module.exports = {
 
         if (!kaif_isOwner && !kaif_isSudo && !kaif_isSuperOwner) {
             return await sock.sendMessage(from, { 
-                text: '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n⛔ *Owner / Sudo permission required.*' 
+                text: '👑 *Raju V3 • VIP FORWARDER*\n\n⛔ *Owner / Sudo permission required.*' 
             }, { quoted: kaif_msg });
         }
 
@@ -65,21 +65,21 @@ module.exports = {
         if (action === 'on') {
             await kaif_updateGlobalAutoForward(sessionId, { enabled: true });
             return await sock.sendMessage(from, { 
-                text: '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n🟢 *ACTIVE*  ⚡ *INSTANT DISPATCH*' 
+                text: '👑 *Raju V3 • VIP FORWARDER*\n\n🟢 *ACTIVE*  ⚡ *INSTANT DISPATCH*' 
             }, { quoted: kaif_msg });
         }
 
         if (action === 'off') {
             await kaif_updateGlobalAutoForward(sessionId, { enabled: false });
             return await sock.sendMessage(from, { 
-                text: '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n🔴 *INACTIVE*  ⚡ *PAUSED*' 
+                text: '👑 *Raju V3 • VIP FORWARDER*\n\n🔴 *INACTIVE*  ⚡ *PAUSED*' 
             }, { quoted: kaif_msg });
         }
 
         if (action === 'clear') {
             await kaif_updateGlobalAutoForward(sessionId, { enabled: false, sourceJids: [], targetJids: [] });
             return await sock.sendMessage(from, { 
-                text: '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n🧹 *CONFIG PURGED*' 
+                text: '👑 *Raju V3 • VIP FORWARDER*\n\n🧹 *CONFIG PURGED*' 
             }, { quoted: kaif_msg });
         }
 
@@ -96,7 +96,7 @@ module.exports = {
                 await kaif_updateGlobalAutoForward(sessionId, { sourceJids: updated, enabled: true });
                 
                 let listStr = updated.length ? updated.map(j => '`' + j + '`').join('\n') : '🌐 *All Chats (Global)*';
-                let text = '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n📥 *SOURCE*\n' + listStr + '\n\n🟢 *Active*';
+                let text = '👑 *Raju V3 • VIP FORWARDER*\n\n📥 *SOURCE*\n' + listStr + '\n\n🟢 *Active*';
                 return await sock.sendMessage(from, { text }, { quoted: kaif_msg });
             }
 
@@ -106,7 +106,7 @@ module.exports = {
                 await kaif_updateGlobalAutoForward(sessionId, { targetJids: updated, enabled: true });
                 
                 let listStr = updated.length ? updated.map(j => '`' + j + '`').join('\n') : '⚠️ *No Targets Set*';
-                let text = '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
+                let text = '👑 *Raju V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
                 return await sock.sendMessage(from, { text }, { quoted: kaif_msg });
             }
 
@@ -116,7 +116,7 @@ module.exports = {
                 await kaif_updateGlobalAutoForward(sessionId, { targetJids: updated, enabled: true });
                 
                 let listStr = updated.map(j => '`' + j + '`').join('\n');
-                let text = '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
+                let text = '👑 *Raju V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
                 return await sock.sendMessage(from, { text }, { quoted: kaif_msg });
             }
         }
@@ -127,7 +127,7 @@ module.exports = {
             await kaif_updateGlobalAutoForward(sessionId, { sourceJids: sources, enabled: true });
             
             let listStr = sources.length ? sources.map(j => '`' + j + '`').join('\n') : '🌐 *All Chats (Global)*';
-            let text = '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n📥 *SOURCE*\n' + listStr + '\n\n🟢 *Active*';
+            let text = '👑 *Raju V3 • VIP FORWARDER*\n\n📥 *SOURCE*\n' + listStr + '\n\n🟢 *Active*';
             return await sock.sendMessage(from, { text }, { quoted: kaif_msg });
         }
 
@@ -137,7 +137,7 @@ module.exports = {
             await kaif_updateGlobalAutoForward(sessionId, { targetJids: targets, enabled: true });
             
             let listStr = targets.length ? targets.map(j => '`' + j + '`').join('\n') : '⚠️ *No Targets Set*';
-            let text = '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
+            let text = '👑 *Raju V3 • VIP FORWARDER*\n\n📤 *TARGET*\n' + listStr + '\n\n🟢 *Active*';
             return await sock.sendMessage(from, { text }, { quoted: kaif_msg });
         }
 
@@ -163,7 +163,7 @@ module.exports = {
 
             await kaif_updateGlobalAutoForward(sessionId, { [dbField]: enable });
             return await sock.sendMessage(from, {
-                text: '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n🎬 *MEDIA*  ' + typeKey.toUpperCase() + ' → ' + (enable ? '*ON*' : '*OFF*')
+                text: '👑 *Raju V3 • VIP FORWARDER*\n\n🎬 *MEDIA*  ' + typeKey.toUpperCase() + ' → ' + (enable ? '*ON*' : '*OFF*')
             }, { quoted: kaif_msg });
         }
 
@@ -192,7 +192,7 @@ module.exports = {
         let mediaStr = mediaIcons.length > 0 ? mediaIcons.join(' ') + ' *ON*' : '🔴 *OFF*';
 
         let vipMenuText = 
-            '👑 *KAIF-MD V3 • VIP FORWARDER*\n\n' +
+            '👑 *Raju V3 • VIP FORWARDER*\n\n' +
             statusHeaderStr + '\n\n' +
             '📥 *SOURCE*\n' +
             sourceListStr + '\n\n' +
