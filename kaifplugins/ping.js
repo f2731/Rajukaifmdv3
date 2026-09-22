@@ -1,7 +1,7 @@
 ﻿/**
- * ⚡ KAIF-MD-V3 ⚡
+ * ⚡ Raju-V3 ⚡
  * Ping Command - High Speed Response
- * Developed by Kaif (ixxkaif)
+ * Developed by Raju
  */
 module.exports = {
     name: 'ping',
@@ -14,10 +14,10 @@ module.exports = {
         const networkLatency = Math.max(0, Date.now() - (kaif_msg.messageTimestamp ? kaif_msg.messageTimestamp * 1000 : Date.now()));
         const botProcessTime = Math.max(0, Date.now() - (kaif_msg._receivedAt || start));
 
-        let report = `⚡ *PONG! KAIF-MD-V3 IS ACTIVE* ⚡\n\n`;
+        let report = `⚡ *PONG! Raju-V3 IS ACTIVE* ⚡\n\n`;
         report += `🚀 *Bot Response Speed:* ${botProcessTime}ms\n`;
         report += `📡 *Network Latency:* ${networkLatency}ms\n\n`;
-        report += `📞 *Owner Contact:* wa.me/923453684061`;
+        report += `📞 *Owner Contact:* wa.me/923071782626`;
 
         try {
             return await kaif_sock.sendMessage(kaif_origin, { text: report }, { quoted: kaif_msg });
